@@ -1,1 +1,10 @@
 THIS IS THE COMBAT MINIGAME FOR PEAK.
+
+THINGS WE MUST HAVE DONE:
+
+* minigame initialization and wrapper
+* at least one attack
+* at least one enemy attack / AI
+* at least health
+* menus and GUI
+* sprites
