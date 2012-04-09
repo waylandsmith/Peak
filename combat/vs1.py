@@ -12,32 +12,10 @@ turn = 0
 menu = """Options:  fight | inventory | run
 """
 
-# def equipC():
-	
-
-
-
-class Axe(object):
-	hitWith = "physical"
-	dmgWith = "physical"
-	dmg = 2 # damage multiplier
-	dtype = "slash"
-	spd = 1 # higher values are faster
-	acc = 80
-
-class Pitchfork(object):
-	hitWith = "mental"
-	dmgWih = "physical"
-	damage = 1
-	dtype = "pierce"
-	spd = 2
-	acc = 100
 
 class Wolf(object):
 	beastHP = 50
 	alive = True
-	physical = 8
-	mental = 1
 	dmg = 5
 	acc = 95
 	dodge = 10
@@ -45,24 +23,17 @@ class Wolf(object):
 	def death():
 		if beastHP < 1:
 			alive = False
+
+
 class PC(object):
 	hp = 50
-	physical = 5
-	mental = 2
-#	dmg = strength + axeDamage
-#	acc = 80 # deprecated
+	strength = 5
+	axeDamage = 2
+	dmg = strength + axeDamage
+	acc = 80
 	dodge = 5
 	armor = 2
-	equip = "Axe"
 
-def attack():
-	atk = random.randint(0,100)
-	missBar = Axe.acc + PC.physical - Wolf.dodge # an Attack value above this misses.  The higher your missBar, the less likely you miss, because attack values are a random roll	PC.
-	if atk <= missBar:
-		Wolf.beastHP -= Axe.dmg * PC.physical
-		print "you did", Axe.dmg * PC.physical,"damage! \n"
-	else:
-		print "you missed!"	
 
 initiative = raw_input("an injured wolf appeared!  what do you do? ")
 
@@ -82,7 +53,13 @@ while battle == True:
 		    	print "you have an axe equipped and no other items \n"
 	    		turn += 1
 		elif act.lower() in ['axe','attack','hit','fight']:
-			attack()
+			atk = random.randint(0,100)
+			missBar = PC.acc - Wolf.dodge # an Attack value above this misses.  The higher your missBar, the less likely you miss, because attack values are a random roll
+			if atk <= missBar:
+				Wolf.beastHP -= PC.dmg
+				print "you did", PC.dmg,"damage! \n"
+			else:
+				print "you missed!"
 		    	turn += 1
 	    	else:
 			print "invalid"
