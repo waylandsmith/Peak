@@ -1,10 +1,10 @@
-#/usr/bin/env python
+#!/usr/bin/env python
 
-import os
+import random
 import pickle
+import player
 
-# Player stats:
-
+"""
 class PC(object):
     def __init__(self, name, hp, physical, mental, status):
         self.name = name
@@ -12,4 +12,10 @@ class PC(object):
         self.physical = physical
         self.mental = mental
         self.status = status
+"""
 
+loadChar = open('save/pc/matt.creature', 'r+')
+
+pc = pickle.load(loadChar)
+
+# print pc.hp
