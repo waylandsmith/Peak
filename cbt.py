@@ -4,7 +4,7 @@ import random
 import pickle
 # import player
 
-
+item = 1 # if odd, Splitter; if even, Rifle
 turn = 0
 menu = """Options:  fight | inventory | run
 """
@@ -30,6 +30,9 @@ class Wolf(object):
 			alive = False
 
 
+def switch():
+    item += 1
+
 def attack(): # the template function for all attack methods
 	atk = random.randint(0,100)
 	missBar = 80 + PC.physical # an Attack value above this misses.  The higher your missBar, the less likely you miss, because attack values are a random roll	PC.
@@ -39,6 +42,14 @@ def attack(): # the template function for all attack methods
 	else:
 		print "you missed!"	
 
+def rifle():
+    atk = random.randint(0,100)
+    missBar = 65 + PC.mental # attack values above this miss
+    if atk <= missBar:
+        Wolf.beastHP -= 5 * PC.mental
+        print "you did", 5 * PC.mental,"damage! \n"
+    else:
+        print "you missed!"
 
 loadChar = open('save/pc/matt.creature', 'r+')
 
@@ -56,9 +67,16 @@ while battle == True:
 		print menu
 		act = raw_input("what do you do? ")
 	        if act.lower() in ['inventory']:
-		    	print "you have an axe equipped and no other items \n"
+		    	print "You have a splitter and an axe,"
+                        print "And you currently have","equipped."
+                        iact = raw_input("Would you like to switch(Y/n) ")
+                        if iact.lower() in ['y']:
+                            switch()
+                        else:
+                            print "ok, but you still lost a turn"
 	    		turn += 1
 		elif act.lower() in ['axe','attack','hit','fight']:
+                    if item/2 == item/2.0
 			attack()
 		    	turn += 1
 	    	else:
