@@ -20,14 +20,15 @@ def character_creation():
     body = int(body)
     mind = raw_input("How clever and wise: ")
     mind = int(mind)
+    status = "healthy"
 #    stat_list = [nom,hip,body,mind]
-    return nom,hip,body,mind
+    return nom,hip,body,mind,status
 
 
-nom, hip, body, mind = character_creation()
+nom, hip, body, mind, status = character_creation()
 #inproperNoun = .lower()
 # Lorem = PC(Lorem, 5, 5, 2, 'healthy')
-Nom = PC(nom, hip, body, mind, 'healthy')
+Nom = PC(nom, hip, body, mind, status)
 
 inproperNoun = Nom.name.lower()
 
