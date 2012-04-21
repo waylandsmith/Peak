@@ -5,6 +5,8 @@ import pickle
 # import player
 
 item = 1 # if odd, Splitter; if even, Rifle
+itemOut = "Splitter Axe"
+weaponID = "axe"
 turn = 0
 menu = """Options:  fight | inventory | run
 """
@@ -17,27 +19,42 @@ class PC(object):
         self.mental = mental
         self.status = status
 
-class Wolf(object):
-	beastHP = 50
-	alive = True
-	physical = 8
-	mental = 1
-	dmg = 5
-	acc = 95
-	armor = 1
+class Dog(object):
+	def __init__(self,physical,mental,dmg,acc):
+	    self.physical = physical
+	    self.mental = mental
+	    self.dmg = dmg
+	    self.acc = acc
+	def statusUpdate():
+	    print "Wolf Status:"
+	    print "Physical: ",self.physical
+	    print "Mental: ",self.mental
 	def death():
 		if beastHP < 1:
 			alive = False
 
+Wolf = Dog(8,1,3,95)
+
+def statDump():
+    print "Physical: ",PC.physical
+    print "Mental: ",PC.mental
 
 def switch():
     item += 1
+
+def iTell():
+    if item / 2 == item / 2.0:
+        itemOut = "Hunting Rifle"
+        weaponID = "rifle"
+    else:
+        itemOut = "Splitter Axe"
+        weaponID = "axe"
 
 def attack(): # the template function for all attack methods
 	atk = random.randint(0,100)
 	missBar = 80 + PC.physical # an Attack value above this misses.  The higher your missBar, the less likely you miss, because attack values are a random roll	PC.
 	if atk <= missBar:
-		Wolf.beastHP -= 2 * PC.physical
+		Wolf.physical -= 2 * PC.physical
 		print "you did", 2 * PC.physical,"damage! \n"
 	else:
 		print "you missed!"	
@@ -46,7 +63,7 @@ def rifle():
     atk = random.randint(0,100)
     missBar = 65 + PC.mental # attack values above this miss
     if atk <= missBar:
-        Wolf.beastHP -= 5 * PC.mental
+        Wolf.physical -= 5 * PC.mental
         print "you did", 5 * PC.mental,"damage! \n"
     else:
         print "you missed!"
@@ -61,41 +78,42 @@ print PC.hp
 battle = True
 
 while battle == True:
-	print "HP = ",PC.hp
-	print "Wolf HP = ",Wolf.beastHP
-	if turn/2 == turn / 2.0:
-		print menu
-		act = raw_input("what do you do? ")
-	        if act.lower() in ['inventory']:
-		    	print "You have a splitter and an axe,"
-                        print "And you currently have","equipped."
-                        iact = raw_input("Would you like to switch(Y/n) ")
-                        if iact.lower() in ['y']:
-                            switch()
-                        else:
-                            print "ok, but you still lost a turn"
-	    		turn += 1
-		elif act.lower() in ['axe','attack','hit','fight']:
-                    if item/2 == item/2.0
-			attack()
-		    	turn += 1
-	    	else:
-			print "invalid"
-	else:
-        	wAtk = random.randint(0,100)
-		missB2 = Wolf.acc
-		if wAtk <= missB2:
-			PC.hp -= Wolf.dmg
-			print "the wolf strikes!"
-			print "the wolf did",Wolf.dmg,"damage"
-		else:
-			print "the wolf missed!"
-		turn += 1
+    iTell()
+    statDump()
+    if turn/2 == turn / 2.0:
+        print menu
+        act = raw_input("what do you do? ")
+        if act.lower() in ['inventory']:
+            print "You have a splitter and an axe,"
+            print "And you currently have",itemOut,"equipped."
+            iact = raw_input("Would you like to switch(Y/n) ")
+            if iact.lower() in ['y']:
+                switch()
+            else:
+                print "ok, but you still lost a turn"
+            turn += 1
+        elif act.lower() in ['axe','attack','hit','fight']:
+            if weaponID.lower in ['axe']:
+                attack()
+            else:
+                rifle()
+            turn += 1
+        else:
+            print "invalid"
+    else:
+        wAtk = random.randint(0,100)
+        missB2 = Wolf.acc
+        if wAtk <= missB2:
+            PC.physical -= Wolf.dmg
+            print "the wolf strikes!"
+            print "the wolf did",Wolf.dmg,"damage"
+        else:
+            print "the wolf missed!"
+        turn += 1
 
-	if Wolf.beastHP < 1:
-#	if Wolf.alive == False:
+	if Wolf.physical < 1:
 		battle = False
 		print "you killed the wolf!"
-	if PC.hp < 1:
+	if PC.physical < 1:
 		battle = False
 		print "you died!"
