@@ -26,18 +26,18 @@ A weapon always targets a certain stat: mental, physical, or speed
 Weapon damage = <Base damage> * ( <Attack damage> + <Damage Stat> )
 
 The combinations of stats mean that weapons can:
-Attack with Physical, Damaging with Physical and Targetting Physical (Splitter)
-Attack with Mental, Damaging with Mental and Targetting Mental
-Attack with Physical, Damaging with Physical and Targetting Mental
-Attack with Physical, Damaging with Physical and Targetting Speed
-Attack with Physical, Damaging with Mental and Targetting Mental
-Attack with Physical, Damaging with Mental and Targetting Physical
-Attack with Physical, Damaging with Mental and Targetting Speed
-Attack with Mental, Damaging with Mental and Targetting Physical (Hunting Rifle)
-Attack with Mental, Damaging with Mental and Targetting Speed
-Attack with Mental, Damaging with Physical and Targetting Physical
-Attack with Mental, Damaging with Physical and Targetting Speed
-Attack with Mental, Damaging with Physical and Targetting Mental
+Attack with Physical, Damaging with Physical and Targetting Physical (Splitter - axe)
+Attack with Mental, Damaging with Mental and Targetting Mental (Mace - stun)
+Attack with Physical, Damaging with Physical and Targetting Mental (Fists, Pitchfork - whack)
+Attack with Physical, Damaging with Physical and Targetting Speed (Splitter, Hatchet - swipe)
+Attack with Physical, Damaging with Mental and Targetting Mental (Fists - Roundhouse)
+Attack with Physical, Damaging with Mental and Targetting Physical (Dagger - stab)
+Attack with Physical, Damaging with Mental and Targetting Speed (Fists, Splitter, Pitchfork - Sweep)
+Attack with Mental, Damaging with Mental and Targetting Physical (Hunting Rifle, Shotgun)
+Attack with Mental, Damaging with Mental and Targetting Speed (Fists - Trip, Pitchfork - Pin)
+Attack with Mental, Damaging with Physical and Targetting Physical (Pitchfork - thrust)
+Attack with Mental, Damaging with Physical and Targetting Speed (Hatchet - dismember)
+Attack with Mental, Damaging with Physical and Targetting Mental (Hatchet - hammer)
 
 
 fin
@@ -45,6 +45,8 @@ fin
 $weapons = <<END;
 
 Weapon List:
+Bow
+Fists
 Splitter
 Hatchet
 Hunting Rifle

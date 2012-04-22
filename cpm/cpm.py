@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 def print_CPM():
-	CPM = """
+    CPM = """
 ------------------------------------------------------------------------------------------
 Part|	Description	    | Inherits	|	Needs	|	Effort	|	Timespan |
 1| Plan Game            | --    	|	3       |       4 hours	|	1 week   |
@@ -25,7 +25,7 @@ Package what works - May 4 to May 7
 
 """
 
-	print CPM
+    print CPM
     
 print_CPM()
 
