@@ -1,34 +1,43 @@
 #!/usr/bin/env python
 
 import pickle
+import player
+from player import PC
 
 # This file defines and generates the character initially!
-
+"""
 class PC(object):
-    def __init__(self, name, hp, physical, mental, status):
+    def __init__(self, name, physical, mental, status):
         self.name = name
-        self.hp = hp
         self.physical = physical
         self.mental = mental
         self.status = status
+"""
 
+"""
 def character_creation():
     nom = raw_input("Enter a player name: ")
-    hip = raw_input("how many hit points? ")
-    hip = int(hip)
     body = raw_input("How strong and fit: ")
     body = int(body)
     mind = raw_input("How clever and wise: ")
     mind = int(mind)
     status = "healthy"
 #    stat_list = [nom,hip,body,mind]
-    return nom,hip,body,mind,status
+    return nom,body,mind,status
 
 
-nom, hip, body, mind, status = character_creation()
+nom, body, mind, status = character_creation()
 #inproperNoun = .lower()
 # Lorem = PC(Lorem, 5, 5, 2, 'healthy')
-Nom = PC(nom, hip, body, mind, status)
+"""
+
+nom = raw_input("Enter a character name: ")
+con = raw_input("How strong and fit? ")
+wis = raw_input("How smart and wise: ")
+status = "healthy"
+
+
+Nom = PC(nom, con, wis, status)
 
 inproperNoun = Nom.name.lower()
 

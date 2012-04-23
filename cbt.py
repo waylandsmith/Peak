@@ -36,19 +36,24 @@ class Dog(object):
 Wolf = Dog(8,1,3,95)
 
 def statDump():
+    print PC.name
     print "Physical: ",PC.physical
     print "Mental: ",PC.mental
 
 def switch():
+    global item
     item += 1
 
 def iTell():
+    global itemOut
+    global weaponID
     if item / 2 == item / 2.0:
         itemOut = "Hunting Rifle"
         weaponID = "rifle"
     else:
         itemOut = "Splitter Axe"
         weaponID = "axe"
+
 
 def attack(): # the template function for all attack methods
 	atk = random.randint(0,100)
@@ -68,12 +73,20 @@ def rifle():
     else:
         print "you missed!"
 
+def checkWin():
+    global battle
+    if Wolf.physical < 1:
+        battle = False
+        print "you killed the wolf!"
+    if PC.physical < 1:
+        battle = False
+        print "you died!"
+
+
 loadChar = open('save/pc/matt.creature', 'r+')
 
 PC = pickle.load(loadChar)
 
-print PC.name
-print PC.hp
 
 battle = True
 
@@ -97,6 +110,7 @@ while battle == True:
                 attack()
             else:
                 rifle()
+            checkWin()
             turn += 1
         else:
             print "invalid"
@@ -109,11 +123,6 @@ while battle == True:
             print "the wolf did",Wolf.dmg,"damage"
         else:
             print "the wolf missed!"
+        checkWin()
         turn += 1
 
-	if Wolf.physical < 1:
-		battle = False
-		print "you killed the wolf!"
-	if PC.physical < 1:
-		battle = False
-		print "you died!"
