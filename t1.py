@@ -5,6 +5,8 @@ import player
 from player import *
 import weapons
 from weapons import *
+import combat
+from combat import *
 
 class Post(object):
     def __init__(self,name,physical,mental):
@@ -63,7 +65,8 @@ battle = True
 while battle == True:
     act = raw_input("Your turn> ")
     if act.lower() in ['f']:
-        pass
+        axe.hack
+        print axe.damage
     elif act.lower() in ['q']:
         battle = False
     else:

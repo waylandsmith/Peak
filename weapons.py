@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import random
+
 # Combat system version 2:  An attack has both Attack and Damage attributes, where Attack is countered by Defense, a 'counter-attack'.
 
 class Weapon(object):
@@ -8,7 +10,7 @@ class Weapon(object):
         self.dmgStat = dmgStat
         self.target = target
         self.muliplier = multiplier
-    
+    damage = 0
 
 class Splitter(Weapon):
     atkStat = "physical"
@@ -17,7 +19,10 @@ class Splitter(Weapon):
     multiplier = 2
     def hack():
         global damage
+        tgt = "physical"
         damage = PC.physical * 1.5
+        atk = random.randint(0,100)
+        missBar = 85 + PC.mental
     def swipe():
         pass
     def sweep():
