@@ -1,44 +1,78 @@
 #!/usr/bin/env python
 
+import random
 import pickle
-import player
-from player import *
-import weapons
-from weapons import *
-import combat
-from combat import *
+# import player
 
-class Post(object):
-    def __init__(self,name,physical,mental):
-        self.name = name
-        self.physical = physical
-        self.mental = mental
-
-te = Post("Pole", 33, 1)
-
+item = 1 # if odd, Splitter; if even, Rifle
+itemOut = "Splitter Axe"
+weaponID = "axe"
+turn = 0
+menu = """Options:  fight | inventory | run
 """
-class Dog(object):
-    def __init__(self,physical,mental,dmg,acc):
+
+class PC(object):
+    def __init__(self, name, hp, physical, mental, status):
+        self.name = name
+        self.hp = hp
         self.physical = physical
         self.mental = mental
-        self.dmg = dmg
-        self.acc = acc
-    def statusUpdate():
-        print "Wolf Status:"
-        print "Physical: ",self.physical
-        print "Mental: ",self.mental
-    def death():
-        if beastHP < 1:
-            alive = False
+        self.status = status
+
+class Dog(object):
+	def __init__(self,physical,mental,dmg,acc):
+	    self.physical = physical
+	    self.mental = mental
+	    self.dmg = dmg
+	    self.acc = acc
+	def statusUpdate():
+	    print "Wolf Status:"
+	    print "Physical: ",self.physical
+	    print "Mental: ",self.mental
+	def death():
+		if beastHP < 1:
+			alive = False
 
 Wolf = Dog(8,1,3,95)
-"""
 
 def statDump():
     print PC.name
     print "Physical: ",PC.physical
     print "Mental: ",PC.mental
-"""
+
+def switch():
+    global item
+    item += 1
+
+def iTell():
+    global itemOut
+    global weaponID
+    if item / 2 == item / 2.0:
+        itemOut = "Hunting Rifle"
+        weaponID = "rifle"
+    else:
+        itemOut = "Splitter Axe"
+        weaponID = "axe"
+
+
+def attack(): # the template function for all attack methods
+	atk = random.randint(0,100)
+	missBar = 80 + PC.physical # an Attack value above this misses.  The higher your missBar, the less likely you miss, because attack values are a random roll	PC.
+	if atk <= missBar:
+		Wolf.physical -= 2 * PC.physical
+		print "you did", 2 * PC.physical,"damage! \n"
+	else:
+		print "you missed!"	
+
+def rifle():
+    atk = random.randint(0,100)
+    missBar = 65 + PC.mental # attack values above this miss
+    if atk <= missBar:
+        Wolf.physical -= 5 * PC.mental
+        print "you did", 5 * PC.mental,"damage! \n"
+    else:
+        print "you missed!"
+
 def checkWin():
     global battle
     if Wolf.physical < 1:
@@ -47,35 +81,17 @@ def checkWin():
     if PC.physical < 1:
         battle = False
         print "you died!"
-"""
+
 
 loadChar = open('save/pc/matt.creature', 'r+')
 
 PC = pickle.load(loadChar)
 
-menu = """
-COMMANDS
-|@  | COMMANDS
-|f  | FIGHT
-|q  | QUIT
-"""
 
 battle = True
 
 while battle == True:
-    act = raw_input("Your turn> ")
-    if act.lower() in ['f']:
-        axe.hack()
-        print axe.damage
-    elif act.lower() in ['q']:
-        battle = False
-    else:
-        print menu
-
-
-"""
-while battle == True:
-#    iTell()
+    iTell()
     statDump()
     if turn/2 == turn / 2.0:
         print menu
@@ -110,4 +126,3 @@ while battle == True:
         checkWin()
         turn += 1
 
-"""

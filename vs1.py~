@@ -12,31 +12,30 @@ turn = 0
 menu = """Options:  fight | inventory | run
 """
 
-
 #def equipC():
 
-# class Weapon(object):
-	#def __init__(self, name, hitWith, dmgWith, dmg, dtype, spd, acc):
-	#	self.name = name
+class Weapon(object):
+	def __init__(self, name, hitWith, dmgWith, dmg, dtype, spd, acc):
+		self.name = name
 
-	#def attack():
-	#	pass
+	def attack():
+		pass
 
-class Axe(object):
+class Axe(Weapon):
 	hitWith = "physical"
 	dmgWith = "physical"
 	dmg = 2 # damage multiplier
 	dtype = "slash"
 	spd = 1 # higher values are faster
 	acc = 80
-#	def attack(self):
-#		atk = random.randint(0,100)
-#		missBar = Axe.acc + PC.physical - Wolf.dodge # an Attack value above this misses.  The higher your missBar, the less likely you miss, because attack values are a random roll	PC.
-#		if atk <= missBar:
-#			Wolf.beastHP -= Axe.dmg * PC.physical
-#			print "you did", Axe.dmg * PC.physical,"damage! \n"
-#		else:
-#			print "you missed!"	
+	def attack(self):
+		atk = random.randint(0,100)
+		missBar = Axe.acc + PC.physical - Wolf.dodge # an Attack value above this misses.  The higher your missBar, the less likely you miss, because attack values are a random roll	PC.
+		if atk <= missBar:
+			Wolf.beastHP -= Axe.dmg * PC.physical
+			print "you did", Axe.dmg * PC.physical,"damage! \n"
+		else:
+			print "you missed!"	
 
 class Pitchfork(object):
 	hitWith = "mental"
@@ -95,7 +94,7 @@ while battle == True:
 		    	print "you have an axe equipped and no other items \n"
 	    		turn += 1
 		elif act.lower() in ['axe','attack','hit','fight']:
-			attack()
+			Axe.attack()
 		    	turn += 1
 	    	else:
 			print "invalid"
