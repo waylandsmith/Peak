@@ -10,27 +10,79 @@ class Weapon(object):
         self.muliplier = multiplier
     
 
-"""
-class Axe(object):
-    def __init__(self)
-# GENERIC ATTRIBUTES
-    hitWith = "physical"
-	dmgWith = "physical"
-	dmg = 2 # damage multiplier
-	dtype = "slash"
-	spd = 1 # higher values are faster
-	acc = 80
-	
-	def Slash(self):
-	def Hammer(self):
-"""	
-
 class Splitter(Weapon):
     atkStat = "physical"
     dmgStat = "physical"
     target = "physical"
     multiplier = 2
+    def hack():
+        global damage
+        damage = PC.physical * 1.5
+    def swipe():
+        pass
+    def sweep():
+        pass
+    def crush():
+        pass
+    def cSlash():
+        pass # this is a more advanced technique.  Advanced slash and withdrawal.
     
+class Hatchet(Weapon):
+    atkStat = "physical"
+    dmgStat = "physical"
+    target = "physical"
+    multiplier = 2
+
+class Rifle(Weapon):
+    atkStat = "mental"
+    dmgStat = "mental"
+    target = "physical"
+    multiplier = 2
+    def bodyShot():
+        pass
+    def headShot():
+        pass
+    def bayonet():
+        pass
+    def club():
+        pass
+
+
+class Shotgun(Weapon):
+    atkStat = "physical"
+    dmgStat = "physical"
+    target = "physical"
+    multiplier = 2
+
+class Mace(Weapon):
+    atkStat = "physical"
+    dmgStat = "physical"
+    target = "physical"
+    multiplier = 2
+
+class Pitchfork(Weapon):
+    atkStat = "physical"
+    dmgStat = "physical"
+    target = "physical"
+    multiplier = 2
+
+class Dagger(Weapon):
+    atkStat = "physical"
+    dmgStat = "physical"
+    target = "physical"
+    multiplier = 2
+    
+class Fists(Weapon):
+    atkStat = "physical"
+    dmgStat = "physical"
+    target = "physical"
+    multiplier = 2
+
+class Bow(Weapon):
+    atkStat = "physical"
+    dmgStat = "physical"
+    target = "physical"
+    multiplier = 2
 
 
 example = Splitter("physical","physical","physical",2)
