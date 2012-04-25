@@ -10,10 +10,27 @@ import weapons
 from weapons import Weapon
 from weapons import Splitter
 
-axe = Splitter("physical","physical","physical",2)
+# axe = Splitter("physical","physical","physical",2)
+
+loadChar = open('save/pc/matthew.creature', 'r+')
+
+PC = pickle.load(loadChar)
+
+def fight():    # this is the fight menu
+    fighting = True
+    while fighting:
+        fshell = raw_input("Fight> ")
+        if fshell.lower() in ['h','help']:
+            pass
+        elif fshell.lower() in ['q', 'quit']:
+            fighting = False
 
 def hack():
-    pass
+    damage = PC.physical * 1.5
+#    atk = random.randint(0,100)
+    missBar = 85 + PC.physical
+    tgt = "physical"
+
     
 def sweep():
     pass
