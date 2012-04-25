@@ -9,10 +9,14 @@ from player import PC
 def charGen():
     nom = raw_input("what is your name? ")
     con = raw_input("How strong and fit? ")
+    con = int(con)
     wis = raw_input("How smart and wise? ")
+    wis = int(wis)
+    spe = raw_input("How fleet of foot and mind? ")
+    spe = int(spe)
     status = "healthy"
 
-    Nom = PC(nom, con, wis, status)
+    Nom = PC(nom, con, wis, spe, status)
 
     inproperNoun = Nom.name.lower()
 
@@ -21,4 +25,5 @@ def charGen():
 
     savChar = open(savNom, 'w')
     pickle.dump(Nom, savChar)
+
 

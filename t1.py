@@ -49,9 +49,9 @@ def checkWin():
         print "you died!"
 """
 
-loadChar = open('save/pc/matt.creature', 'r+')
+# loadChar = open('save/pc/matt.creature', 'r+')
 
-PC = pickle.load(loadChar)
+# PC = pickle.load(loadChar)
 
 menu = """
 COMMANDS
@@ -65,8 +65,9 @@ battle = True
 while battle == True:
     act = raw_input("Your turn> ")
     if act.lower() in ['f']:
-        axe.hack()
-        print axe.damage
+        fight()
+#        hack()
+#        print te.tgt
     elif act.lower() in ['q']:
         battle = False
     else:
