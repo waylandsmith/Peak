@@ -1,5 +1,28 @@
 #!/usr/bin/env perl
 
+$atk = <<OVER;
+ATTACKS:
+--------------------------------
+hack        |Splitter, Hatchet
+sweep       |Spliter, Pitchfork
+stab        |Dagger
+swipe       |Splitter, Hatchet
+stun        |Mace
+spray       |Mace, Flamethrower
+jet         |Mace, Flamethrower
+explode     |Mace, Flamethrower
+whack       |Pitchfork, Fists, Shotgun
+roundhouse  |Fists
+body shot   |Rifle, Shotgun
+headshot    |Rifle
+club        |Rifle, Splitter, Hatchet, Pitchfork
+imp. slash  |
+pin         |Pitchfork
+dismember   |Hatchet
+hammer      |Hatchet
+-------------------------------
+OVER
+
 $rules = <<fin;
 Player stats:
 Name | character name.
@@ -67,7 +90,7 @@ print "\nQuit	 | q \n";
 print "Help	 | h \n";
 print "Weapons	 | w \n";
 print "Rules	 | r \n";
-
+print "Attacks  | a \n";
 
 while ($done == 0) {
 	print "Peak Design Shell: >  ";
@@ -82,10 +105,13 @@ while ($done == 0) {
 		print "Help	 | h \n";
 		print "Weapons	 | w \n";
 		print "Rules	 | r \n";
-
+        print "Attacks  | a \n";
 	}
 	elsif ( $inp eq "w" ) {
 		print $weapons;
+	}
+	elsif ( $inp eq "a" ) {
+		print $atk;
 	}
 	elsif ( $inp eq "r" ) {
 		print $rules;
