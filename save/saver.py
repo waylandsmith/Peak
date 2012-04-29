@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+
+import pickle
+import player
+import enemies
+
+savegames = []

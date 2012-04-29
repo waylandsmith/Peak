@@ -26,4 +26,35 @@ def charGen():
     savChar = open(savNom, 'w')
     pickle.dump(Nom, savChar)
 
+#    savIndex = open(save/saver.py, 'w')
+
+    
+class Loader(object):
+    def __init__(self,name):
+        self.name = name
+#        self.loadFile = loadFile
+        
+    def loadGame(self):
+        # eventually, use a for loop and an index 
+        loading = True
+        while loading:
+            loaded = raw_input("what character do you want to load? ")
+            if loaded.lower() in ['matthew']:
+                person = "save/pc/matthew.creature"
+                loading = False
+            elif loaded.lower() in ['maria']:
+                person = "save/pc/maria.creature"
+                loading = False
+            else:
+                print "not a save file!"
+        self.name = person
+        return self.name
+         
+load_instance = Loader("default.creature")
+
+def loadThings():
+    loadTerm = "save/pc/" + str(load_instance.name)
+    loadChar = open(loadTerm, 'r+')
+    PC = pickle.load(loadChar)
+
 

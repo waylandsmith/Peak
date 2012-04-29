@@ -49,7 +49,8 @@ done = False
 while not done:
     tprompt = raw_input("input a command: ")
     if tprompt.lower() in ['l','load','save']:
-        pass
+        load_instance.loadGame()
+        print load_instance.name
     elif tprompt.lower() in ['n','new','new game']:
         print msg
         charGen() # CHARACTER CREATION

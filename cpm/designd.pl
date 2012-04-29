@@ -25,15 +25,12 @@ OVER
 
 $rules = <<fin;
 Player stats:
-Name | character name.
-HP .... wait.  What if we have damage be to either Physical or Mental?
-	that way, a character naturally weakens in battle,
-	without need for the 'status' stat
-Physical | physical strength and competence
-Mental | mental power and problem-solving ability
-Status ... may be obsolete.  See HP
-Condition | ALIVE, DEAD, INCAPACITATED, UNCONSCIOUS
-Speed | mental alacrity and physical reflexes
+Name    | character name.
+Physical    | physical strength and competence
+Mental  | mental power and problem-solving ability
+Status  | ALIVE, DEAD, INCAPACITATED, UNCONSCIOUS
+Speed   | mental alacrity and physical reflexes
+All stats range from 10 to 30, with 15-20 as the base.
 
 Combat
 To do damage, a weapon must hit.  The accuracy equation draws on either physical or mental stats
@@ -85,12 +82,32 @@ Attacks as functions, instead of weapons
 
 END
 
+$plot = <<conc;
+Prologue:  Home Invasion
+
+Defend your home against your neighbors, who are coming to kill you.
+
+Series of 'status updates' and texts helps in the exposition instead of location.
+
+
+
+ENEMIES:
+The Renier family:
+Paul - man of the house
+Robert - near-adult son
+Marianne - woman of the house
+Desiree - Paul and Marianne's first daughter.  Full-grown.
+Mirabelle - Paul and Marianne's second daughter.  Still a teen.
+
+conc
+
 $done = 0;
 print "\nQuit	 | q \n";
 print "Help	 | h \n";
 print "Weapons	 | w \n";
 print "Rules	 | r \n";
 print "Attacks  | a \n";
+print "Plot     | p \n";
 
 while ($done == 0) {
 	print "Peak Design Shell: >  ";
@@ -116,6 +133,10 @@ while ($done == 0) {
 	elsif ( $inp eq "r" ) {
 		print $rules;
 	}
+	elsif ( $inp eq "p" ) {
+		print $plot;
+	}
 }
+
 
 # print $msg;

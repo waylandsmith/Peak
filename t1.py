@@ -7,6 +7,8 @@ import weapons
 from weapons import *
 import combat
 from combat import *
+import enemies
+from enemies import *
 
 class Post(object):
     def __init__(self,name,physical,mental):
@@ -54,13 +56,16 @@ def checkWin():
 # PC = pickle.load(loadChar)
 
 menu = """
-COMMANDS
-|@  | COMMANDS
++--------------+
+|$  | COMMANDS |
++--------------+
+|e  | LOAD ENEMY
 |f  | FIGHT
 |q  | QUIT
 """
 
 battle = True
+bcount = 0
 
 while battle == True:
     act = raw_input("Your turn> ")
@@ -70,9 +75,12 @@ while battle == True:
 #        print te.tgt
     elif act.lower() in ['q']:
         battle = False
+#        print bcount
+    elif act.lower() in ['e']:
+        enemyLoad(neighbor1)
     else:
         print menu
-
+#    bcount +=1
 
 """
 while battle == True:
