@@ -28,9 +28,10 @@ print title_msg
 
 # THIS IS THE BACKGROUND STORY
 msg ="""
-It is January 13, 2014.  
-You are out of oil.  It is cold....very cold.
-You wake up and see a face in the mirror.
+The date is January 13, 2014.  
+It is cold....very cold.
+
+You wake up and head to the bathroom.  There, you see a face in the mirror.
 Your face.
 """ 
 

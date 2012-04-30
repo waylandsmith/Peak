@@ -52,9 +52,10 @@ class Loader(object):
          
 load_instance = Loader("default.creature")
 
+
 def loadThings():
     loadTerm = "save/pc/" + str(load_instance.name)
     loadChar = open(loadTerm, 'r+')
-    PC = pickle.load(loadChar)
-
-
+    global pc
+    pc = pickle.load(loadChar)
+    return pc
