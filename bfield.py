@@ -7,6 +7,9 @@ import os
 import combat
 
 # THE PURPOSE OF THE BATTLEFIELD IS TO ROUTE ALL ATTACKS TO THEIR TARGETS
+# THIS IS A KEY PROGRAM FILE
+
+CURRENT_ENEMY = "" # reimplement the selector here
 
 class Field(object):
     def __init__(self,phys,mental,speed):
@@ -17,10 +20,16 @@ class Field(object):
         self.phys *= 0
         self.mental *= 0
         self.speed *= 0
-        return 
+        return
         
 pct = Field(0,0,0) # player target
 nct = Field(0,0,0) # NPC target
+
+def hurtMe(): # this function transfers the damage from 'nct' to you, and invokes the nct.refresh() function
+    pass
+
+def hurtBad(): # this function transfers the damage from 'pct' to CURRENT_ENEMY
+    pass
 
 class Level(object):
 # stuff
@@ -30,3 +39,8 @@ class Level(object):
     def restart(self):
         pass
     
+
+
+#######################################################
+#          Copyright Matthew Meneghini 2012           #
+#######################################################
