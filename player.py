@@ -11,7 +11,7 @@ class PC(object):
         self.physical = physical
         self.mental = mental
         self.spd = spd
-        self.status = status
+        self.status = str(status)
     def chkStatus(self,physical,mental,spd):
         if self.physical < 0:
             self.status = "dead"
