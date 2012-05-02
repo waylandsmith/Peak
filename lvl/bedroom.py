@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+
+### THIS IS YOUR BEDROOM AND THE BEGINNING POINT OF THE GAME
+
+

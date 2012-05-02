@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+"""
+Prologue:  Home Invasion
+
+Defend your home against your neighbors, who are coming to kill you.
+
+Series of 'status updates' and texts helps in the exposition instead of location.
+
+"""
+
+"""
+ENEMIES:
+The Renier family:
+Paul - man of the house
+Robert - near-adult son
+Marianne - woman of the house
+Desiree - Paul and Marianne's first daughter.  Full-grown.
+Mirabelle - Paul and Marianne's second daughter.  Still a teen.
+
+
+"""
