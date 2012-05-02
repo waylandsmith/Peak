@@ -22,7 +22,6 @@ def feedDmg(p_dmg,m_dmg,s_dmg):
     pct.mental += m_dmg
     pct.speed += s_dmg
     
-
     
 
 def sweep():
@@ -30,8 +29,9 @@ def sweep():
     m_dmg = 0
     s_dmg = pc.physical * 0.4
     missBar = 95 + pc.physical
-    tgt = "physical"
+    tgt = "you used sweep"
     feedDmg(p_dmg,m_dmg,s_dmg)
+    print tgt
     
 def stab():
     p_dmg = pc.physical * 0.5 # having trouble accessing from PC
@@ -62,8 +62,9 @@ def stun():
     m_dmg = pc.physical * 0.3
     s_dmg = pc.physical * 0.2
     missBar = 85 + pc.physical
-    tgt = "winded!"
+    tgt = "you used stun!"
     feedDmg(p_dmg,m_dmg,s_dmg)
+    print tgt
 
 def jet():
     p_dmg = pc.mental * 0.1 # improved version of spray
@@ -172,17 +173,19 @@ def hack():
     m_dmg = 0
     s_dmg = 0
     missBar = 85 + pc.physical
-    tgt = "hacked"
+    tgt = "you used hack!"
     feedDmg(p_dmg,m_dmg,s_dmg)
+    print tgt
 
 def slash(): # trusty, trusty slash
     p_dmg = pc.physical * 0.2 + pc.mental * 0.2
     m_dmg = 0
     s_dmg = 1
     missBar = 50 + pc.physical + pc.mental
-    tgt = "slashed"
+    tgt = "you used slash!"
     feedDmg(p_dmg,m_dmg,s_dmg)
-
+    print tgt
+    
 def bludgeon():
     p_dmg = pc.physical * 0.3 # having trouble accessing from PC
     m_dmg = pc.physical * 0.3
